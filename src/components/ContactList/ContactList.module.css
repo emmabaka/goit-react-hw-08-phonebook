@@ -1,3 +1,6 @@
+.contactListContainer {
+  margin: 0 auto;
+}
 .contactList {
   width: 330px;
   margin-top: 15px;
@@ -12,12 +15,6 @@
 .contactItem {
   width: 120px;
 }
-.deleteButton {
-  background-color: #fff;
-  padding: 2px 10px;
-  border: 2px solid gray;
-  border-radius: 5px;
-}
-.deleteButton:hover {
-  box-shadow: 2px 2px 10px -6px black;
+.deletButton {
+  margin-left: 40px;
 }

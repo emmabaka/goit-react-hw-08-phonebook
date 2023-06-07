@@ -1,0 +1,7 @@
+.username {
+  color: blue;
+  margin: 15px;
+}
+.wrapper {
+  display: flex;
+}

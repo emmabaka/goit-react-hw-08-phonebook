@@ -1,8 +1,9 @@
-import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { deleteContactsThunk, getContactsThunk } from 'redux/contactsThunk';
 import { getContactsSelector, getFilterSelector } from 'redux/selectors';
 import { ThreeDots } from 'react-loader-spinner';
+import { Button } from '@mui/material';
 import css from './ContactList.module.css';
 
 const ContactList = () => {
@@ -21,13 +22,13 @@ const ContactList = () => {
   };
 
   return (
-    <div>
+    <div className={css.contactListContainer}>
       {isLoading && (
         <ThreeDots
           height="60"
           width="60"
           radius="9"
-          color="#000000"
+          color="#0000ff"
           ariaLabel="three-dots-loading"
           wrapperStyle={{}}
           wrapperClassName=""
@@ -41,13 +42,14 @@ const ContactList = () => {
             return (
               <li key={item.id} className={css.contact}>
                 <span className={css.contactItem}> {item.name}:</span>{' '}
-                <span>{item.phone}</span>
-                <button
+                <span>{item.number}</span>
+                <Button
                   className={css.deleteButton}
+                  size="small"
                   onClick={e => dispatch(deleteContactsThunk(item.id))}
                 >
                   Delete
-                </button>
+                </Button>
               </li>
             );
           })}

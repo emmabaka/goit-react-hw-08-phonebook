@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { changeFilter } from 'redux/filterSlice';
 import { getFilterSelector } from 'redux/selectors';
+import { TextField } from '@mui/material';
 import css from './Filter.module.css';
 
 const Filter = () => {
@@ -11,8 +12,10 @@ const Filter = () => {
     <div className={css.wrapper}>
       <label className={css.label}>
         Find contacts by name
-        <input
-          className={css.input}
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          size="small"
           type="text"
           name="filter"
           value={value}
