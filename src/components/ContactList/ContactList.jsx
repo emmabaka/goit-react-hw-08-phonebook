@@ -7,7 +7,7 @@ import { Button } from '@mui/material';
 import css from './ContactList.module.css';
 
 const ContactList = () => {
-  const { data, error, isLoading } = useSelector(getContactsSelector);
+  const contacts = useSelector(getContactsSelector);
   const filterName = useSelector(getFilterSelector);
   const dispatch = useDispatch();
 
@@ -16,14 +16,14 @@ const ContactList = () => {
   }, [dispatch]);
 
   const visibleContacts = () => {
-    return [...data].filter(({ name }) =>
+    return [...contacts.data].filter(({ name }) =>
       name.toLowerCase().includes(filterName.toLowerCase())
     );
   };
 
   return (
     <div className={css.contactListContainer}>
-      {isLoading && (
+      {contacts.isLoading && (
         <ThreeDots
           height="60"
           width="60"
@@ -35,8 +35,8 @@ const ContactList = () => {
           visible={true}
         />
       )}
-      {error && <p>Oops, something wrong</p>}
-      {data && (
+      {contacts.error && <p>Oops, something wrong</p>}
+      {contacts.data && (
         <ul className={css.contactList}>
           {visibleContacts().map(item => {
             return (

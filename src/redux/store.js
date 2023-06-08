@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { contactsReducer } from './contactsSlice';
 import { filterReducer } from './filterSlice';
-// eslint-disable-next-line no-unused-vars
 import { getDefaultMiddleware } from '@reduxjs/toolkit';
 import {
   persistStore,
